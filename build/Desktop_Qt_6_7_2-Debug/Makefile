@@ -255,6 +255,7 @@ DIST          = /Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.7.2/gcc_64/mkspecs/features/qt_config.prf \
 		/Qt/6.7.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/Qt/6.7.2/gcc_64/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/Qt/6.7.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/Qt/6.7.2/gcc_64/mkspecs/features/toolchain.prf \
 		/Qt/6.7.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -487,6 +488,7 @@ Makefile: ../../TodoQtApp.pro ../../../../Qt/6.7.2/gcc_64/mkspecs/features/spec_
 		../../../../Qt/6.7.2/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/6.7.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/6.7.2/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/6.7.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.7.2/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/6.7.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -711,6 +713,7 @@ Makefile: ../../TodoQtApp.pro ../../../../Qt/6.7.2/gcc_64/mkspecs/features/spec_
 ../../../../Qt/6.7.2/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/6.7.2/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/6.7.2/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/6.7.2/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/6.7.2/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/6.7.2/gcc_64/mkspecs/features/default_pre.prf:

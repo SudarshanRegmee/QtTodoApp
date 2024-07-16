@@ -11,9 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,24 +23,35 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QLineEdit *textBox;
+    QPushButton *addBtn;
+    QListWidget *listWidget;
+    QPushButton *removeBtn;
+    QPushButton *removeAllBtn;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(457, 519);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        textBox = new QLineEdit(centralwidget);
+        textBox->setObjectName("textBox");
+        textBox->setGeometry(QRect(10, 10, 341, 25));
+        addBtn = new QPushButton(centralwidget);
+        addBtn->setObjectName("addBtn");
+        addBtn->setGeometry(QRect(350, 10, 81, 25));
+        listWidget = new QListWidget(centralwidget);
+        listWidget->setObjectName("listWidget");
+        listWidget->setGeometry(QRect(10, 40, 431, 431));
+        removeBtn = new QPushButton(centralwidget);
+        removeBtn->setObjectName("removeBtn");
+        removeBtn->setGeometry(QRect(230, 480, 101, 25));
+        removeAllBtn = new QPushButton(centralwidget);
+        removeAllBtn->setObjectName("removeAllBtn");
+        removeAllBtn->setGeometry(QRect(340, 480, 101, 25));
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 22));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
@@ -49,6 +61,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        addBtn->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
+        removeBtn->setText(QCoreApplication::translate("MainWindow", "Remove", nullptr));
+        removeAllBtn->setText(QCoreApplication::translate("MainWindow", "Remove All", nullptr));
     } // retranslateUi
 
 };
