@@ -41,7 +41,7 @@ public:
         textBox->setGeometry(QRect(10, 10, 341, 25));
         addBtn = new QPushButton(centralwidget);
         addBtn->setObjectName("addBtn");
-        addBtn->setGeometry(QRect(360, 10, 81, 25));
+        addBtn->setGeometry(QRect(350, 10, 81, 25));
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName("listWidget");
         listWidget->setGeometry(QRect(10, 40, 431, 431));

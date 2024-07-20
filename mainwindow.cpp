@@ -1,11 +1,37 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QFile>
+#include <iostream>
+#include <QDebug>
+#include <QMessageBox>
+#include <QDir>
+#include <QListWidget>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QFile file("/home/sudoerson/qtprojs/TodoQtApp/todo.txt");
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << file.errorString();
+        return;
+    }
+
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        ui->listWidget->addItem(QString::fromUtf8(line).trimmed());
+        qDebug() << line;
+    }
+
+    // new QListWidgetItem("Note 1", ui->listWidget);
+    // new QListWidgetItem("Note 2", ui->listWidget);
+    // ui->listWidget->addItem("Note 3");
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -28,7 +54,6 @@ void MainWindow::on_removeBtn_clicked()
 {
     QListWidgetItem* item = ui->listWidget->takeItem(ui->listWidget->currentRow());
     delete item;
-
 }
 
 
