@@ -71,4 +71,6 @@ void MainWindow::on_removeBtn_clicked()
 void MainWindow::on_removeAllBtn_clicked()
 {
     ui->listWidget->clear();
+    fileHandler->clearFileContents();
+    // cleary everything from a file
 }

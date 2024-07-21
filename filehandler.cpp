@@ -42,6 +42,13 @@ void FileHandler::writeFile(const QStringList &lines) {
     file.close();
 }
 
-void FileHandler::deleteFile(int lineno) {
-    qDebug() << "Line no" << lineno << "will be deleted";
+void FileHandler::clearFileContents() {
+    QFile file(m_filePath);
+
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        qDebug() << "Could not open file for writing";
+        return;
+    }
+
+    file.close();
 }

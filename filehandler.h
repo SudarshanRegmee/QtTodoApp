@@ -10,7 +10,7 @@ public:
     FileHandler(const QString &filePath);
     QStringList readFile();
     void writeFile(const QStringList &lines);
-    void deleteFile(int lineno);
+    void clearFileContents();
 
 private:
     QString m_filePath;
