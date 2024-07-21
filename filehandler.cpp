@@ -41,3 +41,7 @@ void FileHandler::writeFile(const QStringList &lines) {
 
     file.close();
 }
+
+void FileHandler::deleteFile(int lineno) {
+    qDebug() << "Line no" << lineno << "will be deleted";
+}
