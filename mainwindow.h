@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "filehandler.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -27,5 +27,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    FileHandler *fileHandler;
 };
 #endif // MAINWINDOW_H

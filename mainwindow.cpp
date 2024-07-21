@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "filehandler.h"
 #include <QFile>
 #include <iostream>
 #include <QDebug>
@@ -10,8 +11,11 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , fileHandler(new FileHandler("/home/sudoerson/qtprojs/TodoQtApp/todo.txt"))
 {
     ui->setupUi(this);
+
+
 
     QFile file("/home/sudoerson/qtprojs/TodoQtApp/todo.txt");
 
@@ -20,17 +24,12 @@ MainWindow::MainWindow(QWidget *parent)
         return;
     }
 
+
     while (!file.atEnd()) {
         QByteArray line = file.readLine();
         ui->listWidget->addItem(QString::fromUtf8(line).trimmed());
         qDebug() << line;
     }
-
-    // new QListWidgetItem("Note 1", ui->listWidget);
-    // new QListWidgetItem("Note 2", ui->listWidget);
-    // ui->listWidget->addItem("Note 3");
-
-
 
 }
 
