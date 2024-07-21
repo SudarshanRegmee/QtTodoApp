@@ -44,17 +44,27 @@ void MainWindow::on_addBtn_clicked()
     qDebug() << "Hello, World";
     qDebug() << listitems;
     fileHandler->writeFile(listitems);
-    // fileHandler->writeFile();
 }
-
 
 void MainWindow::on_removeBtn_clicked()
 {
     QListWidgetItem* item = ui->listWidget->takeItem(ui->listWidget->currentRow());
-    delete item;
+
+    if(item) {
+        delete item;
+    }
+
+    QStringList updatedlist;
+
+    for(int i=0; i<ui->listWidget->count();++i) {
+        updatedlist.append(ui->listWidget->item(i)->text());
+    }
+
+    // writing to the file
+    fileHandler->writeFile(updatedlist);
+
     // now the same item should also be deleted from file
     // Implementaiton: get the index at which the current item is and delete that line...
-
 }
 
 
