@@ -7,6 +7,9 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QListWidget>
+#include <QString>
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,20 +33,34 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_addBtn_clicked()
 {
-    QListWidgetItem* item = new QListWidgetItem(ui->textBox->text(), ui->listWidget);
-    ui->listWidget->addItem(item);
-    ui->textBox->clear();
-    ui->textBox->setFocus();
-    item->setFlags(item->flags() | Qt::ItemIsEditable);
-    // Write the contents to the file
-    QStringList listitems;
-    for(int i=0; i<ui->listWidget->count(); ++i) {
-        QListWidgetItem *item = ui->listWidget->item(i);
-        listitems.append(item->text());
+    QString note = ui->textBox->text();
+    qDebug() << note;
+    note = note.trimmed();
+
+
+    if (note != "") {
+        QListWidgetItem* item = new QListWidgetItem(ui->textBox->text(), ui->listWidget);
+        ui->listWidget->addItem(item);
+        ui->textBox->setFocus();
+        item->setFlags(item->flags() | Qt::ItemIsEditable);
+
+        // Write the contents to the file
+        QStringList listitems;
+        for(int i=0; i<ui->listWidget->count(); ++i) {
+            QListWidgetItem *item = ui->listWidget->item(i);
+            listitems.append(item->text());
+        }
+        qDebug() << listitems;
+        fileHandler->writeFile(listitems);
+    }else {
+        qDebug() << "Cannot insert an empty string";
+        QMessageBox msgBox;
+        msgBox.setText("Cannot Insert an empty String");
+        msgBox.exec();
     }
-    qDebug() << "Hello, World";
-    qDebug() << listitems;
-    fileHandler->writeFile(listitems);
+
+    ui->textBox->clear();
+
 }
 
 void MainWindow::on_removeBtn_clicked()
